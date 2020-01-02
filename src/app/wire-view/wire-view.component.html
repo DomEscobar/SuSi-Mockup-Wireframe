@@ -1,0 +1,43 @@
+<div class="add-btn" (click)="addParent()">+</div>
+<i *ngIf="items.length!=0" class="material-icons" style="margin-top: -15px;cursor:pointer"
+    (click)="isvisible =  !isvisible ">
+    <img [src]="isvisible?'assets/up.png':'assets/down.png'" />
+</i>
+
+<div *ngIf="isvisible" style="border-left: 1px solid #b4b4b4;">
+
+    <div class="" *ngFor="let page of items; let i = index" [style.display]="'block'">
+
+        <div *ngIf="childElement" class="arrow">
+        </div>
+
+        <div class="z-depth-1"
+            style="display:inline-block;padding:10px;margin-top:20px;position:relative;overflow:auto;">
+
+            <!--Properties-->
+            <div class="cardkn {{AppService.currentPage.name==page.name ? 'activepage' : ''}}"
+                style="display:inline-block; width:180px; vertical-align: top;" [id]="page.name">
+                <div class="card-contentkn">
+                    <img [src]="'assets/open.svg'" (click)="openPage(page)" />
+
+                    <div>
+                        <div><input style="width:100%;" [(ngModel)]="page.name" /></div>
+                        <div><textarea placeholder="About..." [(ngModel)]="page.description"> </textarea></div>
+                    </div>
+                </div>
+                <div class="card-foot">
+                    <div (click)="remove(i)">-</div>
+                </div>
+            </div>
+
+            <!--objects-->
+            <div class="" style="display:inline-block">
+
+                <app-wire-view [items]="page.pages" [childElement]="'false'" [level]="level+1"></app-wire-view>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

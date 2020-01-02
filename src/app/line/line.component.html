@@ -1,0 +1,8 @@
+<div [class]="line.isvertical ? 'verticalLine' :'herticalLine'" [style.left.px]="line.left" [style.top.px]="line.top" interact
+    [draggable]="dragOptions">
+
+    <div *ngIf="line.isvertical">{{line.left}} <span>=</span></div>
+    <div *ngIf="!line.isvertical">{{line.top}} <span>=</span></div>
+
+    <div class="rm" (click)="remove()">x</div>
+</div>

@@ -1,0 +1,23 @@
+<div *ngIf="contextMenuService.isVisible" class="ctx-menu" [style.left.px]="contextMenuService.x"
+    [style.top.px]="contextMenuService.y">
+    <div class="itm" (click)="arrange($event,1)">Forward</div>
+    <div class="itm" (click)="arrange($event,2)">Backward</div>
+    <div class="itm" (click)="contextMenuService.isShowCode=true">Code</div>
+    <div class="itm" (click)="copy($event)">Copy</div>
+    <div class="itm" (click)="delete()">Delete</div>
+</div>
+
+
+<!--Code display of element-->
+<div style="width: 400px;
+z-index: 99;
+position: fixed;
+padding: 5px;
+background-color: white;
+font-size: 11px;
+box-shadow: 1px 1px 6px #d8d8d8;" *ngIf="contextMenuService.isShowCode" [style.left.px]="contextMenuService.x"
+    [style.top.px]="contextMenuService.y">
+    <div style="float: right; cursor: pointer;" (click)="contextMenuService.isShowCode=false">[x]</div>
+    <textarea style="border: 0px solid; width: 100%; height: 150px;" [ngModel]="contextMenuService.getLiveHTML()"
+        (change)="setLiveHTML($event.target.value)"></textarea>
+</div>

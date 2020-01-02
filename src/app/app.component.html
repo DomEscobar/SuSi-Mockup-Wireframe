@@ -1,0 +1,130 @@
+<svg>
+  <line stroke-width="1px" stroke="#53ff00" id="line" />
+</svg>
+
+<div class="zoombtns">
+  <div class="btn" (click)="zoom(true)">+</div><br>
+  <div class="btn" (click)="zoom()">-</div>
+  <br>
+  <br>
+
+  <div *ngIf="!isWireview">
+    <div title="Turn on/off drag of elements" class="btn" [style.background]="AppService.isDragable ? 'lightgreen' : ''"
+      (click)="AppService.isDragable= !AppService.isDragable; switchDragable()"><img style="width: 16px; height: 16px;"
+        src="assets/drag.png" /></div><br>
+    <div title="Turn on/off resize of elements" class="btn"
+      [style.background]="AppService.isResizeable ? 'lightgreen' : ''"
+      (click)="AppService.isResizeable= !AppService.isResizeable; switchResizeable();"><img
+        style="width: 16px; height: 16px;" src="assets/resize.png" /></div>
+    <br>
+    <br>
+    <div class="btn" (click)="addLine(false)"> HL </div><br>
+    <div class="btn" style="" (click)="addLine(true)"> VL </div>
+  </div>
+</div>
+
+<div style=" width: 100%; height: 100%; position: fixed; left: 0px; top: 0px; overflow: auto; background: #f5f5f5;">
+
+  <div class="topnav">
+
+    <div>
+      <div class="btn" (click)="isWireview=!isWireview">Pages</div>
+      <div style="display: inline-block; margin-left: 30px;font-size: 18px;">{{AppService.currentPage.name}}</div>
+      <div class="btn" style="margin-left: 30px;" (click)="export()">Export</div>
+      <input #fileInput type="file" class="btn" style="display: none;" (change)="onImport($event)">
+      <div class="btn" style="margin-left: 5px;" (click)="fileInput.click()">Import
+      </div>
+
+      <div #dropFW style="float: right;">
+        <div class="btn" style="margin-left: 5px;" (click)="dropFW.isOpen=!dropFW.isOpen">
+          {{AppService.appData.framework}} <img [src]="'assets/down.png'" /> </div>
+
+        <ng-container *ngIf="dropFW.isOpen">
+          <div class="dropidown">
+            <div class="dopiitem" (click)="switchFW(framework.Bulma); dropFW.isOpen=false;">Bulma</div>
+            <div class="dopiitem" (click)="switchFW(framework.Bootstrap); dropFW.isOpen=false;">Bootstrap</div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sidenav">
+
+
+    <div class="butiflat" (click)="isNewCustomComponent=true"> + new component</div>
+    <input [(ngModel)]="search" placeholder="search..."
+      style="width: 100%; font-size: 11px; border:0px solid;margin-top:10px; margin-bottom: 10px;" />
+    <!--Custom components-->
+    <div class="partscustomrow" *ngFor="let customComp of AppService.appData.components | search : search"
+      (click)="add($event, customComp.html)">
+      <img src="assets/trash.svg" class="deleteico" (click)="removeCustomComponent($event, customComp)">
+      <div [innerHtml]="customComp.name | sanitizeHtml"></div>
+    </div>
+
+    <div class="partscustomrow" *ngFor="let part of AppService.customParts  | search : search" (click)="add($event, part.html)">
+      <div [innerHtml]="part.name | sanitizeHtml"></div>
+    </div>
+  </div>
+
+  <div *ngIf="AppService.isContentEditAble" id="contiPaper" interact [draggable]="opt"
+    class="{{displayPropertiesService.isResizing ? 'grid-ext' : '' }}"
+    [style.width.px]="AppService.currentPage.resolutionW" [style.height.px]="AppService.currentPage.resolutionH" style="
+  background: white;
+  left: 20%;
+  position: absolute;" [style.transform]="'scale(' + AppService.zoom + ')'">
+
+    <app-line *ngFor="let line of AppService.currentPage.lines" (onRemove)="removeLine($event)" [(line)]="line">
+    </app-line>
+
+    <div MediumEditor appContextMenu [id]="eleProp.guid" style="margin-left:200px;" appListeners [listeningTo]="eleProp"
+      *ngFor="let eleProp of AppService.currentPage.elementData" style="position: absolute;left: 200px;" interact
+      [targetChild]=true [resizeable]="eleProp.resizeOptions" [draggable]="eleProp.dragOptions"
+      [innerHtml]="eleProp.html | sanitizeHtml">
+
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="displayPropertiesService.isResizing"
+  style="position: absolute;z-index: 9999;background: white; font-size: 11px;" [style.top.px]="y" [style.left.px]="x">
+  Width : {{displayPropertiesService.width}} <br>
+  Height : {{displayPropertiesService.height}}<br>
+  X : {{displayPropertiesService.x}}<br>
+  Y: {{displayPropertiesService.y}}
+</div>
+
+<div style="    position: fixed;
+top: 0px;
+z-index: 2;
+left: 0px;
+width: 100%;
+overflow: auto;
+background: white;
+height: 100%;
+" *ngIf="isWireview">
+
+  <app-navigation [items]="AppService.appData.pages" (onClose)="isWireview=false;"></app-navigation>
+  <div interact [draggable]="opt" style="position: absolute;top:50px;left: 220px;"
+    [style.transform]="'scale(' + AppService.zoom + ')'">
+    <app-wire-view [items]="AppService.appData.pages" [level]="1"></app-wire-view>
+    <div [style.width.px]="AppService.appData.level * 220">
+    </div>
+  </div>
+</div>
+
+<app-context-menu></app-context-menu>
+
+<ng-container *ngIf="isNewCustomComponent">
+  <app-new-component (onCancel)="isNewCustomComponent=false" (onSave)="isNewCustomComponent=false">
+  </app-new-component>
+</ng-container>
+
+
+<div style="position: fixed; left: 190px; bottom: 15px;">
+  <input class="btn resubtn" [(ngModel)]="AppService.currentPage.resolutionW" /> x <input class="btn resubtn"
+    [(ngModel)]="AppService.currentPage.resolutionH" />
+</div>

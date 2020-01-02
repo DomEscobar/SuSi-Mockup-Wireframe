@@ -1,0 +1,23 @@
+<div class="modali-bg">
+    <div class="modali-cont">
+        <div>
+            <input type="text" placeholder="Name" [(ngModel)]="newComponent.name" />
+        </div>
+
+        <div>
+            <textarea placeholder="HTML" [(ngModel)]="newComponent.html">
+
+            </textarea>
+        </div>
+
+        <div style="max-width: 320px; max-height: 200px; overflow: auto;"
+            [innerHTML]="newComponent.html | sanitizeHtml">
+
+        </div>
+
+        <div class="actioni">
+            <div class="canceli" (click)="onCancel.emit()">Cancel</div>
+            <div class="oki" (click)="addNew()">Add</div>
+        </div>
+    </div>
+</div>

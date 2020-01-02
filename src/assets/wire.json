@@ -1,0 +1,277 @@
+[
+
+
+  {
+    "name": "Stamm",
+    "menus": [
+
+      {
+        "name": "Mitarbeiter",
+        "Ticket": "15750",
+        "description": "Übersichts aller Mitarbeiter",
+        "status": "Bearbeiten",
+        "menus": [
+          {
+            "name": "Mitarbeiter erstellen",
+            "Ticket": "15750",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Mitarbeiter Detail",
+            "Ticket": "15750,31652,30676",
+            "status": "Bearbeiten",
+            "menus": [
+              {
+                "name": "Mitarbeiter Gültigkeiten",
+                "Ticket": "15750",
+                "description": "Übersichts aller Gültigkeiten des jeweiligen Mitarbeiter",
+                "status": "Bearbeiten"
+              }
+            ]
+          },
+          {
+            "name": "Mitarbeiterzusatzinfo ",
+            "description": "Eine Übersicht aller Mitarbeiterzusatzinfos",
+            "status": "Tests",
+            "menus": [
+              {
+                "name": "Mitarbeiterzusatzinfo erstellen",
+                "status": "Tests"
+              },
+              {
+                "name": "Mitarbeiterzusatzinfo Detail",
+                "status": "Bereit"
+              }
+            ]
+          }
+
+        ]
+      },
+      {
+        "name": "Organisation",
+        "Ticket": "17973",
+        "description": "Übersichts aller Organisationen",
+        "status": "Bearbeiten",
+        "menus": [
+          {
+            "name": "Organization erstellen",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Organization Detail",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Zuordnung Elemente",
+            "description": "Spezielle Ansicht um Elemente zu Organisationen zu zuordnen",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Zuordnung Einstellungen",
+            "Ticket": "15900",
+            "status": "Erstellen"
+          },
+          {
+            "name": "Elemente",
+            "description": "Übersicht über alle Elemente",
+            "status": "Bearbeiten",
+            "menus": [
+              {
+                "name": "Elemente erstellen",
+                "status": "Bearbeiten"
+              },
+              {
+                "name": "Elemente Detail",
+                "status": "Bearbeiten"
+              },
+              {
+                "name": "Zuordnungen",
+                "description": "Zuordnungskomponente",
+                "status": "Bearbeiten"
+              }
+            ]
+          }
+
+        ]
+      },
+      {
+        "name": "Ausweis",
+        "Ticket": "31952",
+        "description": "Übersichts aller Ausweise",
+        "status": "Bearbeiten",
+        "menus": [
+          {
+            "name": "Ausweis erstellen",
+            "Ticket": "31614",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Ausweis Detail",
+            "Ticket": "31953",
+            "status": "Bearbeiten"
+          }
+        ]
+      },
+      {
+        "name": "Rollen",
+        "description": "Übersichts aller Rollen",
+        "Ticket": "16853",
+        "status": "Bearbeiten",
+        "menus": [
+          {
+            "name": "Rolle erstellen",
+            "Ticket": "16853",
+            "status": "Bearbeiten"
+          },
+          {
+            "name": "Rolle Detail",
+            "Ticket": "16853",
+            "status": "Erstellen"
+          }
+        ]
+      },
+      {
+        "name": "Geräte",
+        "Ticket": "22926,22130",
+        "description": "Übersichts aller Geräte",
+        "status": "Erstellen",
+        "menus": [
+
+          {
+            "name": "Gerät erstellen",
+            "status": "Erstellen"
+          },
+          {
+            "name": "Gerät Detail",
+            "Ticket": "30680",
+            "status": "Erstellen",
+            "menus": [
+              {
+                "name": "Buchungskennzeichen Einstellungen",
+                "Ticket": "29312",
+                "status": "Erstellen"
+              },
+              {
+                "name": "Buchungsdatei Einstellungen",
+                "Ticket": "29310",
+                "status": "Bearbeiten"
+              },
+              {
+                "name": "Geräte Einstellungen",
+                "Ticket": "29307",
+                "status": "Bearbeiten"
+              }
+            ]
+          },
+          {
+            "name": "Leser",
+            "description": "Übersichts aller Leser",
+            "status": "Erstellen",
+            "menus": [
+              {
+                "name": "Leser erstellen",
+                "status": "Erstellen"
+              },
+              {
+                "name": "Leser Detail",
+                "status": "Erstellen"
+              }
+            ]
+          },
+          {
+            "name": "Relais",
+            "description": "Übersichts aller Relais",
+            "status": "Erstellen",
+            "menus": [
+              {
+                "name": "Relais erstellen",
+                "status": "Erstellen"
+              },
+              {
+                "name": "Relais Detail",
+                "status": "Erstellen"
+              }
+            ]
+          },
+          {
+            "name": "Geräte Gruppen",
+            "description": "Übersichts aller Geräte Gruppen",
+            "status": "Bearbeiten",
+            "menus": [
+              {
+                "name": "Geräte Gruppe erstellen",
+                "status": "Bearbeiten"
+              },
+              {
+                "name": "Geräte Gruppe Detail",
+                "status": "Bearbeiten"
+              }
+            ]
+          },
+          {
+            "name": "Firmenkennung",
+            "Ticket": "31954",
+            "description": "Übersichts aller Firmenkennungen",
+            "status": "Bearbeiten",
+            "menus": [
+              {
+                "name": "Firmenkennung erstellen",
+                "status": "Bearbeiten"
+              },
+              {
+                "name": "Firmenkennung Detail",
+                "Ticket": "31955",
+                "status": "Bearbeiten"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Komponenten",
+    "menus": [
+      {
+        "name": "Datumsfelder",
+        "Ticket": "14046",
+        "status": "Bearbeiten"
+      },
+      {
+        "name": "Fehlercodes",
+        "Ticket": "31579",
+        "status": "Erstellen"
+      },
+      {
+        "name": "Zuordnungen",
+        "Ticket": "31958",
+        "status": "Bearbeiten"
+      },
+      {
+        "name": "Tabelle",
+        "Ticket": "25651,32024,31956",
+        "status": "Bearbeiten"
+      },
+      {
+        "name": "Select",
+        "Ticket": "25673",
+        "status": "Bearbeiten"
+      },
+      {
+        "name": "Navigation",
+        "Ticket": "14198",
+        "status": "Tests"
+      },
+      {
+        "name": "Feldberechtigung",
+        "Ticket": "30522,30253",
+        "status": "Bearbeiten"
+      },
+      {
+        "name": "Detailansicht Navigator",
+        "Ticket": "29635",
+        "status": "Bearbeiten"
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+.colrow
+{
+  padding : 5px;
+  border-left: 1px solid #d5d5d5;
+}
+
+
+img
+{
+  width: 12px;
+    height: 12px;
+    float: right;
+}
+
+.colitem
+{
+  max-width: 100px;
+  overflow: auto;
+}

@@ -1,0 +1,12 @@
+<li class="colitem" *ngFor="let item of items">
+
+  <p #sen style="cursor:pointer;     padding: 5px; " (click)="scrollTo(item.name)">
+    {{item.name}}<i *ngIf="item.pages.length != 0" (click)="sen.show = !sen.show; preventClick($event)"><img [src]="sen.show ? 'assets/up.png' : 'assets/down.png'" /></i>
+  </p>
+  <div *ngIf="sen.show" class="card">
+    <ul class="colrow" *ngIf="item.pages.length != 0">
+      <app-nav-item [items]="item.pages"></app-nav-item>
+    </ul>
+  </div>
+
+</li>
