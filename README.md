@@ -15,12 +15,13 @@
      <img src="https://applabx.com/wp-content/uploads/2017/06/bootstrap-logo.png" alt="Bootstrap" width="80" height="80">
     <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma" width="80" height="30" style="margin-left:30px; vertical-align:top;">
 
-<center> Reqeust your fav. framework <br>
+<center>
+ Reqeust your fav. framework <br>
     <a href="https://github.com/DomEscobar/SuSi-Mockup-Wireframe/issues">Report Bug</a>
     ·
     <a href="https://github.com/DomEscobar/SuSi-Mockup-Wireframe/issues">Request Feature</a>
   </p>
-  </center>
+</center>
 </p>
 
 
@@ -39,7 +40,6 @@ There are many great Mockup and Wireframe tools, but most of them cost something
 <br>
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Angular](https://angular.io/)
 * [InteractJs](https://interactjs.io/)
 * [MediumEditor](https://yabwe.github.io/medium-editor/)
