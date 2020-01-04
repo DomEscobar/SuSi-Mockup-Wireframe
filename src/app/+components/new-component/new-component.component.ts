@@ -26,6 +26,7 @@ export class NewComponentComponent implements OnInit
   addNew()
   {
     this.AppService.appData.components.push(this.newComponent);
+    this.AppService.appData.components = this.AppService.appData.components.slice(0);
     this.onSave.emit(this.newComponent);
   }
 }

@@ -21,6 +21,7 @@ export class AppComponent
 
   x = 0;
   y = 0;
+  isFwOpen: boolean;
   isShowCode: boolean;
   isWireview: boolean;
   isNewCustomComponent: boolean;
@@ -190,5 +191,11 @@ export class AppComponent
 
     const index = this.AppService.appData.components.findIndex(o => o.name == customComponent.name);
     this.AppService.appData.components.splice(index, 1);
+  }
+
+  fileInputclick()
+  {
+    const fileinput = document.getElementById('fileinp');
+    fileinput.click();
   }
 }

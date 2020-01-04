@@ -11,6 +11,8 @@ export class NavItemComponent implements OnInit
   @Input()
   items: any[];
 
+  show: boolean;
+
   constructor() { }
 
   ngOnInit()
@@ -26,7 +28,7 @@ export class NavItemComponent implements OnInit
         behavior: 'auto',
         block: 'center',
         inline: 'center'
-    });
+      });
     }
   }
 

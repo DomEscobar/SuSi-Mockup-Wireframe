@@ -18,6 +18,7 @@ import { MediumEditorDirective } from './+components/medium-editor.directive';
 import { NewComponentComponent } from './+components/new-component/new-component.component';
 import { CodeFormatPipe } from './+components/code-format.pipe';
 import { SearchPipe } from './+components/search.pipe';
+import { DropImageDirective } from './+components/drop-image.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SearchPipe } from './+components/search.pipe';
     MediumEditorDirective,
     NewComponentComponent,
     CodeFormatPipe,
-    SearchPipe
+    SearchPipe,
+    DropImageDirective
   ],
   imports: [
     BrowserModule,

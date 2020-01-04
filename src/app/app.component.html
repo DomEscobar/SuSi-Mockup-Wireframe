@@ -19,7 +19,7 @@
     <br>
     <br>
     <div class="btn" (click)="addLine(false)"> HL </div><br>
-    <div class="btn" style="" (click)="addLine(true)"> VL </div>
+    <div class="btn neurotest" style="" (click)="addLine(true)"> VL </div>
   </div>
 </div>
 
@@ -31,18 +31,18 @@
       <div class="btn" (click)="isWireview=!isWireview">Pages</div>
       <div style="display: inline-block; margin-left: 30px;font-size: 18px;">{{AppService.currentPage.name}}</div>
       <div class="btn" style="margin-left: 30px;" (click)="export()">Export</div>
-      <input #fileInput type="file" class="btn" style="display: none;" (change)="onImport($event)">
-      <div class="btn" style="margin-left: 5px;" (click)="fileInput.click()">Import
+      <input id="fileinp" type="file" class="btn" style="display: none;" (change)="onImport($event)">
+      <div class="btn" style="margin-left: 5px;" (click)="fileInputclick()">Import
       </div>
 
-      <div #dropFW style="float: right;">
-        <div class="btn" style="margin-left: 5px;" (click)="dropFW.isOpen=!dropFW.isOpen">
+      <div style="float: right;">
+        <div class="btn" style="margin-left: 5px;" (click)="isFwOpen=!isFwOpen">
           {{AppService.appData.framework}} <img [src]="'assets/down.png'" /> </div>
 
-        <ng-container *ngIf="dropFW.isOpen">
+        <ng-container *ngIf="isFwOpen">
           <div class="dropidown">
-            <div class="dopiitem" (click)="switchFW(framework.Bulma); dropFW.isOpen=false;">Bulma</div>
-            <div class="dopiitem" (click)="switchFW(framework.Bootstrap); dropFW.isOpen=false;">Bootstrap</div>
+            <div class="dopiitem" (click)="switchFW(framework.Bulma); isFwOpen=false;">Bulma</div>
+            <div class="dopiitem" (click)="switchFW(framework.Bootstrap); isFwOpen=false;">Bootstrap</div>
           </div>
         </ng-container>
       </div>
@@ -63,12 +63,13 @@
       <div [innerHtml]="customComp.name | sanitizeHtml"></div>
     </div>
 
-    <div class="partscustomrow" *ngFor="let part of AppService.customParts  | search : search" (click)="add($event, part.html)">
+    <div class="partscustomrow" *ngFor="let part of AppService.customParts  | search : search"
+      (click)="add($event, part.html)">
       <div [innerHtml]="part.name | sanitizeHtml"></div>
     </div>
   </div>
 
-  <div *ngIf="AppService.isContentEditAble" id="contiPaper" interact [draggable]="opt"
+  <div *ngIf="AppService.isContentEditAble" id="contiPaper" appDropImage interact [draggable]="opt"
     class="{{displayPropertiesService.isResizing ? 'grid-ext' : '' }}"
     [style.width.px]="AppService.currentPage.resolutionW" [style.height.px]="AppService.currentPage.resolutionH" style="
   background: white;
