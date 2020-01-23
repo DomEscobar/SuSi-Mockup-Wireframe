@@ -1,7 +1,16 @@
+declare const interact: any;
 export class ResizeOptions
 {
     edges = { left: true, right: true, bottom: true, top: true };
-    modifiers = [];
+    modifiers = [
+        interact.modifiers.snap({
+            targets: [
+                interact.createSnapGrid({ x: 15, y: 15 })
+            ],
+            range: Infinity,
+            relativePoints: [{ x: 0, y: 0 }]
+        })
+    ];
 
     inertia = true;
     margin: 170;

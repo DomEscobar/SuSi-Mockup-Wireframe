@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { App, Page, Framework } from '../+models/app';
+import { ElementData } from '../+models/elementData';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class AppService
   appData: App = new App();
   currentPage: Page;
   customParts: CustomPart[] = new Array();
+  selectedPartElement: any;
 
   constructor(private http: HttpClient)
   {
@@ -36,6 +38,10 @@ export class AppService
 
       case Framework.Bulma:
         this.customParts = await this.http.get<CustomPart[]>('./assets/bulma.json').toPromise();
+        break;
+
+      case Framework.paper:
+        this.customParts = await this.http.get<CustomPart[]>('./assets/paper.json').toPromise();
         break;
     }
 

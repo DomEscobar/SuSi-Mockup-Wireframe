@@ -1,12 +1,13 @@
-<li class="colitem" *ngFor="let item of items">
+<div class="colitem" *ngFor="let item of items">
 
-  <p  style="cursor:pointer;     padding: 5px; " (click)="scrollTo(item.name)">
-    {{item.name}}<i *ngIf="item.pages.length != 0" (click)="show = !show; preventClick($event)"><img [src]="show ? 'assets/up.png' : 'assets/down.png'" /></i>
-  </p>
-  <div *ngIf="show" class="card">
-    <ul class="colrow" *ngIf="item.pages.length != 0">
+  <div style="cursor:pointer;     padding: 5px; " (click)="scrollTo(item.name)">
+    {{item.name}}<i *ngIf="item.pages.length != 0" (click)="show = !show; preventClick($event)"><img
+        [src]="show ? 'assets/up.png' : 'assets/down.png'" /></i>
+  </div>
+  <div *ngIf="show" style="border:1px dotted gray; padding:2px;">
+    <div class="colrow" *ngIf="item.pages.length != 0">
       <app-nav-item [items]="item.pages"></app-nav-item>
-    </ul>
+    </div>
   </div>
 
-</li>
+</div>

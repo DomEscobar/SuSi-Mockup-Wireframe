@@ -4,7 +4,7 @@ export class App
 {
     components: CustomComponent[] = new Array();
     name: string = 'My App'
-    framework: Framework = Framework.Bootstrap
+    framework: Framework = Framework.paper
     pages: Page[] = new Array();
     level: number = 1;
 }
@@ -16,8 +16,8 @@ export class Page
     elementData: ElementData[] = new Array();
     pages: Page[] = new Array();
     lines: Line[] = new Array();
-    resolutionW  = 1240;
-    resolutionH  = 874;
+    resolutionW = 1240;
+    resolutionH = 874;
 
     constructor(name: string = 'new Page')
     {
@@ -34,5 +34,6 @@ export class CustomComponent
 export enum Framework
 {
     Bulma = 'Bulma',
-    Bootstrap = 'Bootstrap'
+    Bootstrap = 'Bootstrap',
+    paper = 'paper'
 }

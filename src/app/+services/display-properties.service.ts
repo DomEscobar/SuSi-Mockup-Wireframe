@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,11 @@ export class DisplayPropertiesService
   height = 0;
   x = 0;
   y = 0;
+  dataX = 0;
+  dataY = 0;
   isResizing: boolean;
+
+  onChange: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 

@@ -19,6 +19,9 @@ import { NewComponentComponent } from './+components/new-component/new-component
 import { CodeFormatPipe } from './+components/code-format.pipe';
 import { SearchPipe } from './+components/search.pipe';
 import { DropImageDirective } from './+components/drop-image.directive';
+import { ResizePanelComponent } from './+components/resize-panel/resize-panel.component';
+import { DataXYDirective } from './+components/resize-panel/data-xy.directive';
+import {AutosizeModule} from 'ngx-autosize';
 
 @NgModule({
   declarations: [
@@ -35,14 +38,17 @@ import { DropImageDirective } from './+components/drop-image.directive';
     NewComponentComponent,
     CodeFormatPipe,
     SearchPipe,
-    DropImageDirective
+    DropImageDirective,
+    ResizePanelComponent,
+    DataXYDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxInteractjsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AutosizeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

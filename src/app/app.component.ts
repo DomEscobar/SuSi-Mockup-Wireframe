@@ -46,6 +46,11 @@ export class AppComponent
       }
     });
 
+    document.body.addEventListener('click', (event) =>
+    {
+      this.AppService.selectedPartElement = null;
+    });
+
     document.body.addEventListener('mousemove', (e) =>
     {
       if (!this.displayPropertiesService.isResizing)
@@ -87,6 +92,10 @@ export class AppComponent
       case Framework.Bulma:
         Helper.changeFW('assets/bulma.min.css');
         break;
+
+      case Framework.paper:
+        Helper.changeFW('assets/paper.css');
+        break;
     }
 
     this.AppService.initParts(framework);
@@ -105,10 +114,10 @@ export class AppComponent
 
       target.style.webkitTransform =
         target.style.transform =
-        'translate(' + 0 + 'px, ' + event.pageY + 'px)'
+        'translate(' + 0 + 'px, ' + 200 + 'px)'
 
       target.setAttribute('data-x', 0)
-      target.setAttribute('data-y', event.pageY)
+      target.setAttribute('data-y', 200)
 
       // TODO to much
       this.switchDragable();

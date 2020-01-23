@@ -9,15 +9,6 @@
   <br>
 
   <div *ngIf="!isWireview">
-    <div title="Turn on/off drag of elements" class="btn" [style.background]="AppService.isDragable ? 'lightgreen' : ''"
-      (click)="AppService.isDragable= !AppService.isDragable; switchDragable()"><img style="width: 16px; height: 16px;"
-        src="assets/drag.png" /></div><br>
-    <div title="Turn on/off resize of elements" class="btn"
-      [style.background]="AppService.isResizeable ? 'lightgreen' : ''"
-      (click)="AppService.isResizeable= !AppService.isResizeable; switchResizeable();"><img
-        style="width: 16px; height: 16px;" src="assets/resize.png" /></div>
-    <br>
-    <br>
     <div class="btn" (click)="addLine(false)"> HL </div><br>
     <div class="btn neurotest" style="" (click)="addLine(true)"> VL </div>
   </div>
@@ -28,7 +19,8 @@
   <div class="topnav">
 
     <div>
-      <div class="btn" (click)="isWireview=!isWireview">Pages</div>
+      <div class="btn" style="    background-image: linear-gradient(to right, #00dbde 0%, #526cff 100%); color: white;"
+        (click)="isWireview=!isWireview">Pages</div>
       <div style="display: inline-block; margin-left: 30px;font-size: 18px;">{{AppService.currentPage.name}}</div>
       <div class="btn" style="margin-left: 30px;" (click)="export()">Export</div>
       <input id="fileinp" type="file" class="btn" style="display: none;" (change)="onImport($event)">
@@ -43,6 +35,7 @@
           <div class="dropidown">
             <div class="dopiitem" (click)="switchFW(framework.Bulma); isFwOpen=false;">Bulma</div>
             <div class="dopiitem" (click)="switchFW(framework.Bootstrap); isFwOpen=false;">Bootstrap</div>
+            <div class="dopiitem" (click)="switchFW(framework.paper); isFwOpen=false;">Paper</div>
           </div>
         </ng-container>
       </div>
@@ -69,34 +62,38 @@
     </div>
   </div>
 
-  <div *ngIf="AppService.isContentEditAble" id="contiPaper" appDropImage interact [draggable]="opt"
+  <div *ngIf="AppService.isContentEditAble" id="contiPaper" appDropImage
     class="{{displayPropertiesService.isResizing ? 'grid-ext' : '' }}"
     [style.width.px]="AppService.currentPage.resolutionW" [style.height.px]="AppService.currentPage.resolutionH" style="
   background: white;
-  left: 20%;
+  margin-right: 350px;
+  left: 175px;
+  top:20px;
+  margin-bottom: 350px;
   position: absolute;" [style.transform]="'scale(' + AppService.zoom + ')'">
 
     <app-line *ngFor="let line of AppService.currentPage.lines" (onRemove)="removeLine($event)" [(line)]="line">
     </app-line>
 
-    <div MediumEditor appContextMenu [id]="eleProp.guid" style="margin-left:200px;" appListeners [listeningTo]="eleProp"
-      *ngFor="let eleProp of AppService.currentPage.elementData" style="position: absolute;left: 200px;" interact
-      [targetChild]=true [resizeable]="eleProp.resizeOptions" [draggable]="eleProp.dragOptions"
-      [innerHtml]="eleProp.html | sanitizeHtml">
+    <div appContextMenu [id]="eleProp.guid" style="margin-left:200px;" appListeners [listeningTo]="eleProp"
+      *ngFor="let eleProp of AppService.currentPage.elementData" style="position: absolute;left: 200px;z-index: -5;top:-200px;"
+      interact [targetChild]=true [draggable]="eleProp.dragOptions" [innerHtml]="eleProp.html | sanitizeHtml">
 
     </div>
 
+    <app-resize-panel></app-resize-panel>
   </div>
 
 </div>
-
-<div *ngIf="displayPropertiesService.isResizing"
+<!--
+  <div *ngIf="displayPropertiesService.isResizing"
   style="position: absolute;z-index: 9999;background: white; font-size: 11px;" [style.top.px]="y" [style.left.px]="x">
   Width : {{displayPropertiesService.width}} <br>
   Height : {{displayPropertiesService.height}}<br>
   X : {{displayPropertiesService.x}}<br>
   Y: {{displayPropertiesService.y}}
 </div>
+-->
 
 <div style="    position: fixed;
 top: 0px;

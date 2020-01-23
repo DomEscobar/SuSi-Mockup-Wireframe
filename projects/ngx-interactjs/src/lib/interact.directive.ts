@@ -60,6 +60,13 @@ export class DragOptions
   inertia = true;
   // keep the element within the area of it's parent
   modifiers = [
+    interact.modifiers.snap({
+      targets: [
+        interact.createSnapGrid({ x: 15, y: 15 })
+      ],
+      range: Infinity,
+      relativePoints: [{ x: 0, y: 0 }]
+    })
   ];
   // enable autoScroll
   autoScroll = true;

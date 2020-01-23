@@ -1,0 +1,6 @@
+<div [hidden]="!AppService.selectedPartElement" #serf interact
+    style="position: absolute; border: 5px dashed rgb(164, 164, 164); margin-left: 190px; margin-top: -210px; z-index: 1;"
+    [resizeable]="opt" appDataXY [dataXY]="[DisplayPropertiesService.dataX, DisplayPropertiesService.dataY]"
+    [style.width.px]="DisplayPropertiesService.width+marginLeftRight+25"
+    [style.height.px]="DisplayPropertiesService.height+ marginTopBottom +25">
+</div>
