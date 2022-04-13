@@ -5,7 +5,7 @@
   <h1 align="center">  <img src="logoSusi.png" alt="Logo" width="80" height="80" style="vertical-align:bottom;"> Wireframe & Mockup</h1>
   <center>
   <h2>
-    <a href="https://nokol.net/susimockup">View app</a>
+    <a href="https://su-si-mockup-wireframe.vercel.app/">View app</a>
     </h2>
 </center>
   <p align="center">
